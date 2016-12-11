@@ -1,0 +1,85 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+For example, the following CSS rule changes the font size of all UI
+components that have the btn class name.
+*/
+.btn {
+    font-size: 20;
+    margin-bottom: 10;
+}
+
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import 'nativescript-theme-core/css/core.dark.css';
+
+
+.layoutLogin{
+    margin-top: 50;
+}
+.imageBackground {
+    background-image: url("~/asserts/img/BACKGROUND-ND.png");
+    height: 100%;
+    width: 100%;
+    transform: scale(4,4);
+
+}
+
+.textFieldLogin{
+    margin-bottom: 20;
+    padding-bottom: 10;
+    padding-top: 10;
+    border-bottom-width: 0.5;
+    border-bottom-color: #e4e4e4;
+    padding-left: 50;
+    font-size: 15;
+}
+
+.icon {
+    font-family: 'font-awesome';
+    font-size: 48;
+}
+.loginLogo{
+    transform: scale(2,2);
+    margin-top: 20;
+}
+#button{
+    height: 44;
+    background-color: #00caab ;
+
+}
+.fullWidth{
+    height: 44;
+}
+.marginBtn10{
+    margin-bottom: 5;
+}
+
+.paddingLeftRight10{
+    padding-left: 10;
+    padding-right: 10;
+
+}
+
+.paddingTopBottom10{
+    padding-bottom: 10;
+    padding-top: 10;
+
+}
+
+.marginTopBottom{
+    margin-top: 20;
+    margin-bottom: 20;
+}
+.greenBtn{
+    background-color: #00caab ;
+
+}

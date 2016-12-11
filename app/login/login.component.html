@@ -1,0 +1,11 @@
+<ActionBar opacity="0.3"  backgroundColor= "white" title="Login"></ActionBar>
+<StackLayout>
+    <Image #loginlogo class="loginLogo" src="~/asserts/img/LOGO_ND.png" horizontalAlignment="center" stretch="none" (loaded)="animate(loginlogo)" ></Image>
+
+    <StackLayout class="layoutLogin" >
+        <TextField [(ngModel)]="email" class="textFieldLogin" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField [(ngModel)]="password" class="textFieldLogin" hint="Password" secure="true"></TextField>
+        <Button class="btn-primary btn-active" id="button" text="Login" (tap)="login()"></Button>
+    </StackLayout>
+
+</StackLayout>

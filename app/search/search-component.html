@@ -1,0 +1,23 @@
+<ActionBar title="Search">
+    <!--<NavigationButton visibility="collapsed"></NavigationButton>-->
+</ActionBar>
+
+<DockLayout stretchLastChild="true">
+    <StackLayout>
+        <FlexboxLayout >
+            <Button flexGrow="1" class="marginTopBottom"  text="My profile " ></Button>
+            <Button flexGrow="1" class="marginTopBottom" text="My car" ></Button>
+            <Button flexGrow="1" class="marginTopBottom" text="Settings" ></Button>
+        </FlexboxLayout>
+
+        <Label class="paddingLeftRight10"  textWrap="true" text="A problem with someone's car ?! Notify Driver concerned by entering his plate number ! If he is one of the ND Community, You will be abel to send him a notification about the problem"></Label>
+        <TextField style="margin-top: 25" horizontalAlignment="center"   #firstTx class="input bott"
+                   autocapitalizationType="allCharacters"
+                   hint="XXXXXXXX" autocorrect="false"
+                  [(ngModel)]="plateNumber"></TextField>
+        <Button class="btn-primary btn-active marginTopBottom" id="button" text="Search" (tap)="search()"></Button>
+        <Button class="btn-primary btn-active marginTopBottom" id="button1" text="Search" (tap)="getToken()"></Button>
+
+    </StackLayout>
+
+</DockLayout>
