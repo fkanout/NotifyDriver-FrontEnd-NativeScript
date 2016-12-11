@@ -16,8 +16,8 @@ var CarService = (function () {
             content: JSON.stringify({ plate: plateNumber })
         }).then(function (response) {
             if (response && response.statusCode === 404)
-                return null;
-            if (response && response.statusCode === 200)
+                return false;
+            if (response && response.statusCode === 200 && response.content)
                 return response.content;
         }).catch(function (err) { return err; });
     };

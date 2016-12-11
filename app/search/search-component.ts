@@ -15,10 +15,15 @@ export class SearchComponent implements OnInit {
 
     search = () =>{
        this.carService.searchCar(this.plateNumber)
-            .then((res) => console.log("res",res))
+            .then((response) =>{
+                if (response)
+                    alert(response);
+                else
+                    alert('Car not found');
+            })
             .catch(err=> console.log(err)
         );
-    }
+    };
     getToken(){
         const token = this.authenticationService.getToken();
         console.log(token);

@@ -12,7 +12,12 @@ var SearchComponent = (function () {
         this.plateNumber = '';
         this.search = function () {
             _this.carService.searchCar(_this.plateNumber)
-                .then(function (res) { return console.log("res", res); })
+                .then(function (response) {
+                if (response)
+                    alert(response);
+                else
+                    alert('Car not found');
+            })
                 .catch(function (err) { return console.log(err); });
         };
     }
