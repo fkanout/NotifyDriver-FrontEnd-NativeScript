@@ -10,19 +10,17 @@ var LoginComponent = (function () {
         this.password = '';
     }
     LoginComponent.prototype.ngOnInit = function () {
+        // email: "f.kanout@gmail.com", password: '..'
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.authenticationService
-            .login({ email: "f.kanout@gmail.com", password: '..' })
-            .then((function (result) {
-            console.log(result);
-            if (result)
+        this.authenticationService.login({ email: this.email, password: this.password })
+            .then(function (response) {
+            if (response)
                 _this.router.navigate(['/search']);
-            else {
-                console.log("Username or password is incorrect");
-            }
-        }));
+            else
+                alert('Wrong username or password');
+        });
     };
     LoginComponent.prototype.animate = function (element) {
         // >> animation-animating-properties-code

@@ -18,20 +18,17 @@ export class LoginComponent implements OnInit {
     constructor(private authenticationService: AuthenticationService, private router: Router) {}
 
     ngOnInit() {
-
+        // email: "f.kanout@gmail.com", password: '..'
     }
     login(){
-        this.authenticationService
-            .login({ email: "f.kanout@gmail.com", password: '..'})
-            .then((result =>{
-                console.log(result);
-                if (result)
-                    this.router.navigate(['/search']);
-                else{
-                    console.log("Username or password is incorrect");
-                }
+        this.authenticationService.login({ email: this.email, password: this.password })
+            .then(response =>{
+            if (response)
+                this.router.navigate(['/search']);
+            else
+                alert('Wrong username or password');
+        });
 
-            }));
 
     }
 

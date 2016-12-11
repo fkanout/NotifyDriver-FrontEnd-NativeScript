@@ -18,13 +18,14 @@ var AuthenticationService = (function () {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 content: JSON.stringify({ email: cred.email, password: cred.password })
-            })
-                .then(function (response) {
-                var token = response.content.toJSON() && response.content.toJSON().token;
-                appSettings.setString("accessToken", token);
-                return true;
-            })
-                .catch(function (err) { return false; });
+            }).then(function (response) {
+                if (response && response.statusCode === 200 && response.content.toJSON()) {
+                    var token = response.content.toJSON().token;
+                    appSettings.setString("accessToken", token);
+                    return true;
+                }
+                return false;
+            }).catch(function (err) { return false; });
         };
         this.isAuthenticated = function () { return _this.authenticated; };
         this.getToken = function () { return _this.token; };

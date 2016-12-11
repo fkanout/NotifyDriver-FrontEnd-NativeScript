@@ -19,13 +19,14 @@ export class AuthenticationService {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             content: JSON.stringify({ email: cred.email, password: cred.password })
-        })
-           .then(response => {
-               const token = response.content.toJSON() && response.content.toJSON().token ;
-               appSettings.setString("accessToken",token);
-               return true;
-           })
-           .catch(err => false);
+       }).then(response => {
+               if (response && response.statusCode === 200 && response.content.toJSON()){
+                   const token = response.content.toJSON().token;
+                   appSettings.setString("accessToken",token);
+                   return true;
+               }
+               return false;
+       }).catch(err => false);
     };
     register(cred): Observable<boolean>{
         return this.http.post(`${this.constantsService.GET_API_URL()}/signup`, { email: cred.email, password: cred.password })
