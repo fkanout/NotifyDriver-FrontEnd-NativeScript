@@ -9,10 +9,8 @@ import * as appSettings from "application-settings";
 
 @Injectable()
 export class AuthenticationService {
-
     private authenticated:boolean = false;
     public token:string = appSettings.getString("accessToken") || null;
-
     constructor(private http: Http, private constantsService: ConstantsService) { }
 
     login = (cred) => {
@@ -28,9 +26,7 @@ export class AuthenticationService {
                return true;
            })
            .catch(err => false);
-
     };
-
     register(cred): Observable<boolean>{
         return this.http.post(`${this.constantsService.GET_API_URL()}/signup`, { email: cred.email, password: cred.password })
             .map((response: Response) => {
@@ -41,7 +37,4 @@ export class AuthenticationService {
 
     isAuthenticated = () => this.authenticated;
     getToken = () =>this.token
-
-
-
 }

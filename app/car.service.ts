@@ -7,20 +7,19 @@ import {request} from "http";
 
 @Injectable()
 export class CarService {
-
-  constructor(private http: Http, private authenticationService: AuthenticationService, private constantsService: ConstantsService) { }
+    constructor(private authenticationService: AuthenticationService, private constantsService: ConstantsService) { }
 
     searchCar(plateNumber: string){
-        // return this.http.post(this.constantsService.GET_API_URL() + '/car/search', { plate: plateNumber }, { headers: this.authenticationService.header() })
-        //     .map((response: Response)=>response.json())
-        //     .catch((error:any) => Observable.throw(error.json().error || 'Server error '));
         return request({
             url: `${this.constantsService.GET_API_URL()}/car/search`,
-            method: "POST", 
+            method: "POST",
             headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
             content: JSON.stringify({ plate: plateNumber })
-        }).then(res => res.content
-        ).catch(err=> err);
+        }).then(response => {
+            if (response && response.statusCode === 404)
+                return null;
+            if (response && response.statusCode === 200)
+                return response.content;
+        }).catch(err=> err);
     }
-
 }
