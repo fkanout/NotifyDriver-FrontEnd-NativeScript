@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
     }
 
     login(){
+
         this.routerExtensions.navigate(["/login"]
             // ,{
             // transition: {

@@ -11,6 +11,7 @@
     "exclude": [
         "node_modules",
         "platforms",
-        "**/*.aot.ts"
+        "**/*.aot.ts",
+        "**/js.map"
     ]
 }
