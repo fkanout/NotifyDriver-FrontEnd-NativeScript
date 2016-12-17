@@ -8,10 +8,10 @@ var main_component_1 = require("./main/main.component");
 var login_component_1 = require("./login/login.component");
 var forms_1 = require("nativescript-angular/forms");
 var http_1 = require("nativescript-angular/http");
-var authentication_service_1 = require("./authentication.service");
-var constants_service_1 = require("./constants.service");
+var authentication_service_1 = require("./services/authentication.service");
+var constants_service_1 = require("./services/constants.service");
 var search_component_1 = require("./search/search-component");
-var car_service_1 = require("./car.service");
+var car_service_1 = require("./services/car.service");
 var AppModule = (function () {
     function AppModule() {
     }

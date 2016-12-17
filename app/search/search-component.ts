@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {CarService} from '../car.service';
-import {AuthenticationService} from '../authentication.service';
+import {CarService} from '../services/car.service';
+import {AuthenticationService} from '../services/authentication.service';
 @Component({
     templateUrl: './search/search-component.html',
 })

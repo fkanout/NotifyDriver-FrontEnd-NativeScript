@@ -1,8 +1,8 @@
 "use strict";
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
-var car_service_1 = require('../car.service');
-var authentication_service_1 = require('../authentication.service');
+var car_service_1 = require('../services/car.service');
+var authentication_service_1 = require('../services/authentication.service');
 var SearchComponent = (function () {
     function SearchComponent(router, carService, authenticationService) {
         var _this = this;

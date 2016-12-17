@@ -1,6 +1,6 @@
 "use strict";
 var core_1 = require('@angular/core');
-var authentication_service_1 = require('../authentication.service');
+var authentication_service_1 = require('../services/authentication.service');
 var router_1 = require("@angular/router");
 var LoginComponent = (function () {
     function LoginComponent(authenticationService, router) {

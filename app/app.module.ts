@@ -9,10 +9,10 @@ import {LoginComponent} from "./login/login.component";
 
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
-import {AuthenticationService} from "./authentication.service";
-import {ConstantsService} from "./constants.service";
+import {AuthenticationService} from "./services/authentication.service";
+import {ConstantsService} from "./services/constants.service";
 import {SearchComponent} from "./search/search-component";
-import {CarService} from "./car.service";
+import {CarService} from "./services/car.service";
 
 @NgModule({
     declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent],
