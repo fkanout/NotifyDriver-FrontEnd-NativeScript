@@ -10,7 +10,7 @@ var AuthenticationService = (function () {
         var _this = this;
         this.http = http;
         this.constantsService = constantsService;
-        this.authenticated = false;
+        this.authenticated = true;
         this.token = appSettings.getString("accessToken") || null;
         this.login = function (cred) {
             return http_2.request({

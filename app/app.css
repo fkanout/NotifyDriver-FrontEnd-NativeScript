@@ -83,3 +83,8 @@ refer to http://docs.nativescript.org/ui/theme.
     background-color: #00caab ;
 
 }
+.noBackgroundColor{
+    background-color: white;
+    box-shadow: none;
+    border: none;
+}

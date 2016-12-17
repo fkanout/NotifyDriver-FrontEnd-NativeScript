@@ -1,15 +1,17 @@
 "use strict";
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
+var router_2 = require('nativescript-angular/router');
 var enums = require("ui/enums");
 var MainComponent = (function () {
-    function MainComponent(router) {
+    function MainComponent(router, routerExtensions) {
         this.router = router;
+        this.routerExtensions = routerExtensions;
     }
     MainComponent.prototype.ngOnInit = function () {
     };
     MainComponent.prototype.login = function () {
-        this.router.navigate(["/login"]);
+        this.routerExtensions.navigate(["/login"]);
     };
     MainComponent.prototype.animate = function (label) {
         // >> animation-animating-properties-code
@@ -28,7 +30,7 @@ var MainComponent = (function () {
             selector: 'app-main',
             templateUrl: 'main/main.component.html',
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, router_2.RouterExtensions])
     ], MainComponent);
     return MainComponent;
 }());

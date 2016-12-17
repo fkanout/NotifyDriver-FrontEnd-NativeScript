@@ -1,11 +1,18 @@
 <ActionBar title="Search">
     <!--<NavigationButton visibility="collapsed"></NavigationButton>-->
+    <ActionItem
+                ios.systemIcon="9" ios.position="left"
+                android.systemIcon="ic_menu_share"
+                android.position="actionBar"></ActionItem>
+    <ActionItem
+                ios.systemIcon="16" ios.position="right"
+                text="delete" android.position="popup"></ActionItem>
 </ActionBar>
 
 <DockLayout stretchLastChild="true">
     <StackLayout>
         <FlexboxLayout >
-            <Button flexGrow="1" class="marginTopBottom"  text="My profile " ></Button>
+            <Button flexGrow="1" class="noBackgroundColor marginTopBottom"  text="My profile " ></Button>
             <Button flexGrow="1" class="marginTopBottom" text="My car" ></Button>
             <Button flexGrow="1" class="marginTopBottom" text="Settings" ></Button>
         </FlexboxLayout>

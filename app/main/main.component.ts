@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import { Label } from "ui/label";
+import {RouterExtensions} from 'nativescript-angular/router';
+
 import {Color} from "color";
 let enums = require("ui/enums");
 
@@ -10,13 +12,20 @@ let enums = require("ui/enums");
     templateUrl: 'main/main.component.html',
 })
 export class MainComponent implements OnInit {
-    constructor(private router: Router) { }
+    constructor(private router: Router, private routerExtensions:RouterExtensions) { }
 
     ngOnInit() {
     }
 
     login(){
-        this.router.navigate(["/login"]);
+        this.routerExtensions.navigate(["/login"]
+            // ,{
+            // transition: {
+            //     name: "explode",
+            //         duration: 1000,
+            //         curve: "linear"
+            // }}
+        );
 
     }
 

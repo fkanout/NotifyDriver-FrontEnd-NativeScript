@@ -23,13 +23,11 @@ import {CarService} from "./car.service";
         NativeScriptRouterModule,
         NativeScriptRouterModule,
         NativeScriptRouterModule.forRoot(routes)
-
     ],
     providers: [
         AuthenticationService,
         ConstantsService,
         CarService
-
     ],
     schemas: [NO_ERRORS_SCHEMA],
     bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import * as appSettings from "application-settings";
 
 @Injectable()
 export class AuthenticationService {
-    private authenticated:boolean = false;
+    private authenticated:boolean = true;
     public token:string = appSettings.getString("accessToken") || null;
     constructor(private http: Http, private constantsService: ConstantsService) { }
 
