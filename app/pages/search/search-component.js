@@ -1,20 +1,23 @@
 "use strict";
 var core_1 = require('@angular/core');
-var router_1 = require("@angular/router");
-var car_service_1 = require('../services/car.service');
-var authentication_service_1 = require('../services/authentication.service');
+var car_service_1 = require('../../services/car.service');
+var authentication_service_1 = require('../../services/authentication.service');
+var router_1 = require('nativescript-angular/router');
 var SearchComponent = (function () {
-    function SearchComponent(router, carService, authenticationService) {
+    function SearchComponent(routerExtensions, carService, authenticationService) {
         var _this = this;
-        this.router = router;
+        this.routerExtensions = routerExtensions;
         this.carService = carService;
         this.authenticationService = authenticationService;
         this.plateNumber = '';
         this.search = function () {
             _this.carService.searchCar(_this.plateNumber)
                 .then(function (response) {
-                if (response)
-                    alert(response);
+                if (response) {
+                    _this.routerExtensions.navigate(["car-found", { car: response }]);
+                    console.log(response.plate);
+                    _this.plateNumber = '';
+                }
                 else
                     alert('Car not found');
             })
@@ -31,7 +34,7 @@ var SearchComponent = (function () {
         core_1.Component({
             templateUrl: './search/search-component.html',
         }), 
-        __metadata('design:paramtypes', [router_1.Router, car_service_1.CarService, authentication_service_1.AuthenticationService])
+        __metadata('design:paramtypes', [router_1.RouterExtensions, car_service_1.CarService, authentication_service_1.AuthenticationService])
     ], SearchComponent);
     return SearchComponent;
 }());

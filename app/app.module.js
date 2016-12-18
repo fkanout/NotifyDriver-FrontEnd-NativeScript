@@ -4,20 +4,21 @@ var platform_1 = require("nativescript-angular/platform");
 var app_component_1 = require("./app.component");
 var router_1 = require("nativescript-angular/router");
 var app_routing_1 = require("./app.routing");
-var main_component_1 = require("./main/main.component");
-var login_component_1 = require("./login/login.component");
+var main_component_1 = require("./pages/main/main.component");
+var login_component_1 = require("./pages/login/login.component");
 var forms_1 = require("nativescript-angular/forms");
 var http_1 = require("nativescript-angular/http");
 var authentication_service_1 = require("./services/authentication.service");
 var constants_service_1 = require("./services/constants.service");
-var search_component_1 = require("./search/search-component");
+var search_component_1 = require("./pages/search/search-component");
 var car_service_1 = require("./services/car.service");
+var car_found_component_1 = require("./pages/car-found/car-found-component");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent],
+            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent, car_found_component_1.CarFoundComponent],
             imports: [
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,

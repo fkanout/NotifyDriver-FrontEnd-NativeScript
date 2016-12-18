@@ -1,15 +1,18 @@
-import { LoginComponent } from "./login/login.component";
-import {MainComponent} from "./main/main.component";
-import {SearchComponent} from './search/search-component';
+import {LoginComponent} from "./pages/login/login.component";
+import {MainComponent} from "./pages/main/main.component";
+import {SearchComponent} from './pages/search/search-component';
+import {CarFoundComponent} from './pages/car-found/car-found-component';
 
 export const routes = [
-    { path: "", component: MainComponent},
+    { path: "search", component: MainComponent},
     { path: "login", component: LoginComponent},
-    { path: "search", component: SearchComponent}
+    { path: "", component: SearchComponent},
+    { path: "car-found", component: CarFoundComponent}
 ];
 
 export const navigatableComponents = [
     MainComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    CarFoundComponent
 ];
