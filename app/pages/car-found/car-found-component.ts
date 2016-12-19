@@ -11,21 +11,50 @@ import { Observable } from 'rxjs/Observable';
 import {Subscription } from 'rxjs';
 
 
+
 @Component({
     templateUrl: 'pages/car-found/car-found-component.html',
 })
 export class CarFoundComponent implements OnInit {
-    carFound:any='';
+
+    pokemonList = [
+        "My car is stacked by yours",
+        "Your car is being robbed",
+        "You forgot you car's lighit on",
+        "You forgot you pet in your car",
+        "Votre voiture a blocké la mienne",
+        "Vous avez oublié vorre chien dans votre voiture et il est pas bien ",
+        "Meowth",
+        "Persian",
+        "Psyduck",
+        "Arcanine",
+        "Poliwrath",
+        "Machoke"];
+    icon="f2c8";
+
+    carFound:any='CK234DQ';
     plateNumber:string = '';
     sub:any='';
+    public pokemons: Array<string>;
+    public picked: string;
 
-    constructor(private activatedRoute: ActivatedRoute) { }
+    constructor(private activatedRoute: ActivatedRoute) {
+        this.pokemons = [];
+
+        for (let i = 0; i < this.pokemonList.length; i++) {
+            this.pokemons.push(this.pokemonList[i]);
+        }
+    }
 
     ngOnInit(){
          this.activatedRoute.params
             .subscribe(params => {this.carFound = JSON.parse(params['car']); this.plateNumber=this.carFound.plateNumber});
 
 
+    }
+    public selectedIndexChanged(picker) {
+        console.log("picker selection: " + picker.selectedIndex);
+        this.picked = this.pokemons[picker.selectedIndex];
     }
 
 

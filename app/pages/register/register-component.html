@@ -1,0 +1,8 @@
+<ActionBar title="Register"></ActionBar>
+<StackLayout>
+    <TextField [(ngModel)]="email" class="textFieldLogin" autocorrect="false" autocapitalizationType="none" keyboardType="email" hint="Email"></TextField>
+    <TextField [(ngModel)]="password"  class="textFieldLogin" secure="true" hint="Password"></TextField>
+    <TextField [(ngModel)]="confirmPassword" class="textFieldLogin" secure="true" hint="Repeat Password"></TextField>
+    <Button class="btn-primary btn-active" id="button" text="Register" (tap)="register()"></Button>
+
+</StackLayout>

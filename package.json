@@ -14,7 +14,7 @@
   },
   "scripts": {
     "ios": "tns livesync ios --emulator --watch",
-    "android": "tns livesync android --emulator --watch"
+    "android": "tns livesync android --watch"
   },
   "dependencies": {
     "@angular/common": "2.2.1",

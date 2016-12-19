@@ -8,10 +8,6 @@ var AppComponent = (function () {
         this.router = router;
         this.authenticationService = authenticationService;
         this.routerExtensions = routerExtensions;
-        console.log(this.authenticationService.isAuthenticated());
-        if (this.authenticationService.isAuthenticated()) {
-            this.routerExtensions.navigate(["/search"]);
-        }
     }
     AppComponent.prototype.ngOnInit = function () {
     };

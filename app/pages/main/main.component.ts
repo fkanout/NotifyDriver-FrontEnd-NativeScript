@@ -2,19 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import { Label } from "ui/label";
 import {RouterExtensions} from 'nativescript-angular/router';
-
+import {AuthenticationService} from '../../services/authentication.service';
 import {Color} from "color";
 let enums = require("ui/enums");
 
 
 @Component({
     selector: 'app-main',
-    templateUrl: 'main/main.component.html',
+    templateUrl: 'pages/main/main.component.html',
 })
 export class MainComponent implements OnInit {
-    constructor(private router: Router, private routerExtensions:RouterExtensions) { }
+    constructor(private router: Router, private routerExtensions:RouterExtensions, private authenticationService:AuthenticationService) { }
 
     ngOnInit() {
+        console.log(this.authenticationService.isAuthenticated());
+        if (this.authenticationService.isAuthenticated()){
+            this.routerExtensions.navigate(["/search"]);
+        }
     }
 
     login(){
@@ -28,6 +32,9 @@ export class MainComponent implements OnInit {
             // }}
         );
 
+    }
+    register(){
+        this.routerExtensions.navigate(["/register"]);
     }
 
     animate(label: Label) {

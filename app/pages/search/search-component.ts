@@ -5,7 +5,7 @@ import {AuthenticationService} from '../../services/authentication.service';
 import {RouterExtensions} from 'nativescript-angular/router';
 
 @Component({
-    templateUrl: './search/search-component.html',
+    templateUrl: 'pages/search/search-component.html',
 })
 export class SearchComponent implements OnInit {
     plateNumber:string='';
@@ -16,11 +16,12 @@ export class SearchComponent implements OnInit {
     }
 
     search = () =>{
+        console.log(this.plateNumber);
        this.carService.searchCar(this.plateNumber)
             .then((response) =>{
                 if (response){
+                    console.log(response);
                     this.routerExtensions.navigate(["car-found", {car: response}]);
-                    console.log(response.plate);
                     this.plateNumber='';
                 }
                 else

@@ -14,9 +14,10 @@ import {ConstantsService} from "./services/constants.service";
 import {SearchComponent} from "./pages/search/search-component";
 import {CarService} from "./services/car.service";
 import {CarFoundComponent} from "./pages/car-found/car-found-component";
+import {RegisterComponent} from "./pages/register/register-component";
 
 @NgModule({
-    declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent],
+    declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent, RegisterComponent],
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,

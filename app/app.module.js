@@ -13,12 +13,13 @@ var constants_service_1 = require("./services/constants.service");
 var search_component_1 = require("./pages/search/search-component");
 var car_service_1 = require("./services/car.service");
 var car_found_component_1 = require("./pages/car-found/car-found-component");
+var register_component_1 = require("./pages/register/register-component");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent, car_found_component_1.CarFoundComponent],
+            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent, car_found_component_1.CarFoundComponent, register_component_1.RegisterComponent],
             imports: [
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,

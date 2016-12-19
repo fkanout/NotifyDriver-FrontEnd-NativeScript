@@ -8,13 +8,12 @@ import {RouterExtensions} from 'nativescript-angular/router';
 })
 export class AppComponent implements OnInit{
     constructor(private router: Router, private authenticationService: AuthenticationService, private routerExtensions: RouterExtensions){
-        console.log(this.authenticationService.isAuthenticated());
-        if (this.authenticationService.isAuthenticated()){
-            this.routerExtensions.navigate(["/search"]);
-        }
+
     }
 
     ngOnInit() {
+
+
 
     }
 

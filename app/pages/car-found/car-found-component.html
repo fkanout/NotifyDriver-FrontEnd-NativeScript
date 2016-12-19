@@ -1,1 +1,62 @@
-<ActionBar opacity="0.3"  backgroundColor= "white" title="{{carFound.plate}}"></ActionBar>
+<ActionBar title="Pick a message"></ActionBar>
+
+<DockLayout class="myFontRegular" stretchLastChild="true">
+    <Button class="myFontRegular" height="75" dock="bottom" text="Notify Driver" style="background-color: #00caab ;color: white;"></Button>
+
+    <StackLayout  dock="bottom" >
+        <Label height="20" width="20" text="3" style="color: white; background-color: #00caab ; border-radius: 10%;  text-align:center;"></Label>
+
+    </StackLayout>
+
+    <StackLayout dock="top" text="top" style="margin: 5;">
+        <Label style="text-justify: auto" textWrap="true" text="YaY, The car's owner is one of the ND Community !
+You can send him a notification right now.
+Please be aware that you will not be able to send hom another notification before 30 minutes
+    "></Label>
+    </StackLayout>
+
+
+
+
+
+
+    <StackLayout text="fill" style=" margin: 5;">
+        <AbsoluteLayout>
+            <Label height="20" width="20" text="1" style="color: white; background-color: #00caab ; border-radius: 10%;  text-align:center;"></Label>
+            <Label style="margin-left:25; font-size: 13pt; color: #00caab" textWrap="true" text="Pick a message:"></Label>
+        </AbsoluteLayout>
+
+
+        <ListPicker class="myFontRegular" style="font-size: x-small" #picker
+                    [items]="pokemons" [
+                    selectedIndex]="selectedIndex"
+                    (selectedIndexChange)="selectedIndexChanged(picker)">
+        </ListPicker>
+
+        <AbsoluteLayout>
+            <Label height="20" width="20" text="2" style="color: white; background-color: #00caab ; border-radius: 10%;  text-align:center;"></Label>
+            <Label style="margin-left:25; font-size: 13pt; color: #00caab" textWrap="true" text="Verify:"></Label>
+        </AbsoluteLayout>
+
+        <StackLayout orientation="horizontal">
+            <Label  style="left:50%; font-size: 13pt;"  textWrap="true" text="Plate: "> </Label>
+            <Label  style="font-size: 13pt;"  textWrap="true" text="{{carFound.plate}}"> </Label>
+
+        </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label style="font-size: 13pt;"  textWrap="true" text="Selected Message: "> </Label>
+            <Label style="font-size: 13pt;"  textWrap="true" text="{{picked}}"> </Label>
+        </StackLayout>
+
+
+
+
+
+    </StackLayout>
+
+
+
+
+</DockLayout>
+
+

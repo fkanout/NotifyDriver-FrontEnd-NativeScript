@@ -9,7 +9,7 @@ import * as appSettings from "application-settings";
 
 @Injectable()
 export class AuthenticationService {
-    private authenticated:boolean = true;
+    private authenticated:boolean = false;
     public token:string = appSettings.getString("accessToken") || null;
     constructor(private http: Http, private constantsService: ConstantsService) { }
 
@@ -28,12 +28,21 @@ export class AuthenticationService {
                return false;
        }).catch(err => false);
     };
-    register(cred): Observable<boolean>{
-        return this.http.post(`${this.constantsService.GET_API_URL()}/signup`, { email: cred.email, password: cred.password })
-            .map((response: Response) => {
-                let token = response.json() && response.json().token;
-                return token;
-            });
+
+    register(cred): Promise<boolean>{
+        return request({
+            url: `${this.constantsService.GET_API_URL()}/signup`,
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ email: cred.email, password: cred.password })
+        }).then(response => {
+            if (response && response.statusCode === 200 && response.content.toJSON()){
+                const token = response.content.toJSON().token;
+                appSettings.setString("accessToken",token);
+                return true;
+            }
+            return false;
+        }).catch(err => false);
     }
 
     isAuthenticated = () => this.authenticated;

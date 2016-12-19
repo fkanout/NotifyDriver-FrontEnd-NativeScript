@@ -5,8 +5,8 @@ import {TextField} from "ui/text-field";
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login/login.component.html',
-  styleUrls: ['login/login.component.css']
+  templateUrl: 'pages/login/login.component.html',
+  styleUrls: ['pages/login/login.component.css']
 })
 export class LoginComponent implements OnInit {
 

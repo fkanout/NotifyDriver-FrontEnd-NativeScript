@@ -10,7 +10,7 @@ var AuthenticationService = (function () {
         var _this = this;
         this.http = http;
         this.constantsService = constantsService;
-        this.authenticated = true;
+        this.authenticated = false;
         this.token = appSettings.getString("accessToken") || null;
         this.login = function (cred) {
             return http_2.request({
@@ -31,11 +31,19 @@ var AuthenticationService = (function () {
         this.getToken = function () { return _this.token; };
     }
     AuthenticationService.prototype.register = function (cred) {
-        return this.http.post(this.constantsService.GET_API_URL() + "/signup", { email: cred.email, password: cred.password })
-            .map(function (response) {
-            var token = response.json() && response.json().token;
-            return token;
-        });
+        return http_2.request({
+            url: this.constantsService.GET_API_URL() + "/signup",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ email: cred.email, password: cred.password })
+        }).then(function (response) {
+            if (response && response.statusCode === 200 && response.content.toJSON()) {
+                var token = response.content.toJSON().token;
+                appSettings.setString("accessToken", token);
+                return true;
+            }
+            return false;
+        }).catch(function (err) { return false; });
     };
     AuthenticationService = __decorate([
         core_1.Injectable(), 

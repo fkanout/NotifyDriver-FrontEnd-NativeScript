@@ -2,16 +2,25 @@
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
 var router_2 = require('nativescript-angular/router');
+var authentication_service_1 = require('../../services/authentication.service');
 var enums = require("ui/enums");
 var MainComponent = (function () {
-    function MainComponent(router, routerExtensions) {
+    function MainComponent(router, routerExtensions, authenticationService) {
         this.router = router;
         this.routerExtensions = routerExtensions;
+        this.authenticationService = authenticationService;
     }
     MainComponent.prototype.ngOnInit = function () {
+        console.log(this.authenticationService.isAuthenticated());
+        if (this.authenticationService.isAuthenticated()) {
+            this.routerExtensions.navigate(["/search"]);
+        }
     };
     MainComponent.prototype.login = function () {
         this.routerExtensions.navigate(["/login"]);
+    };
+    MainComponent.prototype.register = function () {
+        this.routerExtensions.navigate(["/register"]);
     };
     MainComponent.prototype.animate = function (label) {
         // >> animation-animating-properties-code
@@ -28,9 +37,9 @@ var MainComponent = (function () {
     MainComponent = __decorate([
         core_1.Component({
             selector: 'app-main',
-            templateUrl: 'main/main.component.html',
+            templateUrl: 'pages/main/main.component.html',
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_2.RouterExtensions])
+        __metadata('design:paramtypes', [router_1.Router, router_2.RouterExtensions, authentication_service_1.AuthenticationService])
     ], MainComponent);
     return MainComponent;
 }());

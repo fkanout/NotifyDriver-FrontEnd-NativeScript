@@ -11,11 +11,12 @@ var SearchComponent = (function () {
         this.authenticationService = authenticationService;
         this.plateNumber = '';
         this.search = function () {
+            console.log(_this.plateNumber);
             _this.carService.searchCar(_this.plateNumber)
                 .then(function (response) {
                 if (response) {
+                    console.log(response);
                     _this.routerExtensions.navigate(["car-found", { car: response }]);
-                    console.log(response.plate);
                     _this.plateNumber = '';
                 }
                 else
@@ -32,7 +33,7 @@ var SearchComponent = (function () {
     };
     SearchComponent = __decorate([
         core_1.Component({
-            templateUrl: './search/search-component.html',
+            templateUrl: 'pages/search/search-component.html',
         }), 
         __metadata('design:paramtypes', [router_1.RouterExtensions, car_service_1.CarService, authentication_service_1.AuthenticationService])
     ], SearchComponent);
