@@ -21,6 +21,13 @@ components that have the btn class name.
     margin-bottom: 10;
 }
 
+.fa {
+    font-family: FontAwesome,fontawesome-webfont;
+}
+.icon {
+    font-family: IcoMoon-Free;
+    font-size: 48;
+}
 
 /*
 In many cases you may want to use the NativeScript core theme instead

@@ -11,7 +11,7 @@ import * as appSettings from "application-settings";
 export class AuthenticationService {
     private authenticated:boolean = false;
     public token:string = appSettings.getString("accessToken") || null;
-    constructor(private http: Http, private constantsService: ConstantsService) { }
+    constructor(private constantsService: ConstantsService) { }
 
     login = (cred) => {
        return request({
@@ -30,11 +30,12 @@ export class AuthenticationService {
     };
 
     register(cred): Promise<boolean>{
+        const deviceToken:string = appSettings.getString("deviceToken");
         return request({
             url: `${this.constantsService.GET_API_URL()}/signup`,
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            content: JSON.stringify({ email: cred.email, password: cred.password })
+            content: JSON.stringify({ email: cred.email, password: cred.password, deviceToken: deviceToken})
         }).then(response => {
             if (response && response.statusCode === 200 && response.content.toJSON()){
                 const token = response.content.toJSON().token;

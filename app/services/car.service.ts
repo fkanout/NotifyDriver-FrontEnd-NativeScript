@@ -22,4 +22,19 @@ export class CarService {
                 return response.content;
         }).catch(err=> err);
     }
+
+    notifyDriver(payload: any){
+        console.dir(payload);
+        return request({
+            url: `${this.constantsService.GET_API_URL()}/notifydriver`,
+            method: "POST",
+            headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
+            content: JSON.stringify(payload)
+        }).then(response => {
+            if (response && response.statusCode === 404)
+                return false;
+            if (response && response.statusCode === 200 && response.content)
+                return response.content;
+        }).catch(err=> err);
+    }
 }

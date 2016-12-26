@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
                     this.routerExtensions.navigate(["car-found", {car: response}]);
                     this.plateNumber='';
                 }
+
                 else
                     alert('Car not found');
             })

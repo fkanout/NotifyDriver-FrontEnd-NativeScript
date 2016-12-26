@@ -21,6 +21,20 @@ var CarService = (function () {
                 return response.content;
         }).catch(function (err) { return err; });
     };
+    CarService.prototype.notifyDriver = function (payload) {
+        console.dir(payload);
+        return http_1.request({
+            url: this.constantsService.GET_API_URL() + "/notifydriver",
+            method: "POST",
+            headers: { 'Authorization': this.authenticationService.getToken(), "Content-Type": "application/json" },
+            content: JSON.stringify(payload)
+        }).then(function (response) {
+            if (response && response.statusCode === 404)
+                return false;
+            if (response && response.statusCode === 200 && response.content)
+                return response.content;
+        }).catch(function (err) { return err; });
+    };
     CarService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, constants_service_1.ConstantsService])

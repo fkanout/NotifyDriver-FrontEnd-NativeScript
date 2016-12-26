@@ -15,6 +15,34 @@ import {SearchComponent} from "./pages/search/search-component";
 import {CarService} from "./services/car.service";
 import {CarFoundComponent} from "./pages/car-found/car-found-component";
 import {RegisterComponent} from "./pages/register/register-component";
+import firebase = require("nativescript-plugin-firebase");
+
+import * as appSettings from "application-settings";
+
+firebase.init({
+    // Optionally pass in properties for database, authentication and cloud messaging,
+    // see their respective docs.
+    onPushTokenReceivedCallback: function(token) {
+        appSettings.setString("deviceToken",token);
+        console.log("Firebase push token: " + token);
+    },
+    onMessageReceivedCallback: function(message) {
+        console.log("Title: " + message.title);
+        console.log("Body: " + message.body);
+        // if your server passed a custom property called 'foo', then do this:
+        console.log("Value of 'foo': " + message);
+    }
+
+}).then(
+    (instance) => {
+        console.log(instance);
+        console.log("firebase.init done");
+    },
+    (error) => {
+        console.log("firebase.init error: " + error);
+    }
+);
+
 
 @NgModule({
     declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent, RegisterComponent],
@@ -35,4 +63,4 @@ import {RegisterComponent} from "./pages/register/register-component";
     bootstrap: [AppComponent]
 
 })
-export class AppModule { }
+export class AppModule {}

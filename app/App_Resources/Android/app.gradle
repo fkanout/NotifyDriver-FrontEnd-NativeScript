@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.notifyDriver" 
+    applicationId = "com.kanout.notifydriver"
     
     //override supported platforms
     // ndk {

@@ -14,6 +14,27 @@ var search_component_1 = require("./pages/search/search-component");
 var car_service_1 = require("./services/car.service");
 var car_found_component_1 = require("./pages/car-found/car-found-component");
 var register_component_1 = require("./pages/register/register-component");
+var firebase = require("nativescript-plugin-firebase");
+var appSettings = require("application-settings");
+firebase.init({
+    // Optionally pass in properties for database, authentication and cloud messaging,
+    // see their respective docs.
+    onPushTokenReceivedCallback: function (token) {
+        appSettings.setString("deviceToken", token);
+        console.log("Firebase push token: " + token);
+    },
+    onMessageReceivedCallback: function (message) {
+        console.log("Title: " + message.title);
+        console.log("Body: " + message.body);
+        // if your server passed a custom property called 'foo', then do this:
+        console.log("Value of 'foo': " + message);
+    }
+}).then(function (instance) {
+    console.log(instance);
+    console.log("firebase.init done");
+}, function (error) {
+    console.log("firebase.init error: " + error);
+});
 var AppModule = (function () {
     function AppModule() {
     }

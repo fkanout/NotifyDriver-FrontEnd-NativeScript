@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     email:string="";
     password:string="";
     confirmPassword:string="";
+    icon=String.fromCharCode(0xe903);
     constructor(private authenticationService: AuthenticationService, private routerExtensions:RouterExtensions) { }
 
     ngOnInit() {

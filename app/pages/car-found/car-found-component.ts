@@ -38,7 +38,7 @@ export class CarFoundComponent implements OnInit {
     public pokemons: Array<string>;
     public picked: string;
 
-    constructor(private activatedRoute: ActivatedRoute) {
+    constructor(private activatedRoute: ActivatedRoute, private carService: CarService) {
         this.pokemons = [];
 
         for (let i = 0; i < this.pokemonList.length; i++) {
@@ -48,13 +48,23 @@ export class CarFoundComponent implements OnInit {
 
     ngOnInit(){
          this.activatedRoute.params
-            .subscribe(params => {this.carFound = JSON.parse(params['car']); this.plateNumber=this.carFound.plateNumber});
+            .subscribe(params => {this.carFound = JSON.parse(params['car']); this.plateNumber = this.carFound.plateNumber});
+        console.dir(this.carFound);
 
 
     }
     public selectedIndexChanged(picker) {
         console.log("picker selection: " + picker.selectedIndex);
         this.picked = this.pokemons[picker.selectedIndex];
+    }
+    notifyDriver = () =>{
+        this.carService.notifyDriver({
+            carId: this.carFound._id,
+            ownerId: this.carFound.owner,
+            msgSelected: this.picked
+        }).then(respose =>console.log(respose));
+
+
     }
 
 
