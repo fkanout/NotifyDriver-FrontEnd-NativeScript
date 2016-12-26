@@ -22,7 +22,6 @@ var CarService = (function () {
         }).catch(function (err) { return err; });
     };
     CarService.prototype.notifyDriver = function (payload) {
-        console.dir(payload);
         return http_1.request({
             url: this.constantsService.GET_API_URL() + "/notifydriver",
             method: "POST",
@@ -33,6 +32,19 @@ var CarService = (function () {
                 return false;
             if (response && response.statusCode === 200 && response.content)
                 return response.content;
+        }).catch(function (err) { return err; });
+    };
+    CarService.prototype.addCar = function (payload) {
+        return http_1.request({
+            url: this.constantsService.GET_API_URL() + "/car/add",
+            method: "POST",
+            headers: { 'Authorization': this.authenticationService.getToken(), "Content-Type": "application/json" },
+            content: JSON.stringify(payload)
+        }).then(function (response) {
+            if (response && response.statusCode === 200 && response.content)
+                return response.content;
+            else
+                return false;
         }).catch(function (err) { return err; });
     };
     CarService = __decorate([

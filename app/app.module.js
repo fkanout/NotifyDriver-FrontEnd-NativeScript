@@ -16,6 +16,7 @@ var car_found_component_1 = require("./pages/car-found/car-found-component");
 var register_component_1 = require("./pages/register/register-component");
 var firebase = require("nativescript-plugin-firebase");
 var appSettings = require("application-settings");
+var add_car_component_1 = require("./pages/add-car/add-car-component");
 firebase.init({
     // Optionally pass in properties for database, authentication and cloud messaging,
     // see their respective docs.
@@ -40,7 +41,7 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent, car_found_component_1.CarFoundComponent, register_component_1.RegisterComponent],
+            declarations: [app_component_1.AppComponent, app_routing_1.navigatableComponents, main_component_1.MainComponent, login_component_1.LoginComponent, search_component_1.SearchComponent, car_found_component_1.CarFoundComponent, register_component_1.RegisterComponent, add_car_component_1.AddCarComponent],
             imports: [
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,

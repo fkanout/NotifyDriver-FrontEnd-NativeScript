@@ -1,0 +1,9 @@
+<ActionBar title="Add Car"></ActionBar>
+<StackLayout marginTop="20">
+    <TextField [(ngModel)]="carPlate" class="textFieldLogin" autocorrect="false" autocapitalizationType="none"  hint="car plate"></TextField>
+    <TextField [(ngModel)]="carMark"  class="textFieldLogin"  hint="car mark"></TextField>
+    <TextField [(ngModel)]="carModel" class="textFieldLogin"  hint="car model "></TextField>
+    <TextField [(ngModel)]="carYear" class="textFieldLogin"   hint="car year"></TextField>
+    <Button class="btn-primary btn-active" id="button" text="Register" (tap)="addCar()"></Button>
+
+</StackLayout>

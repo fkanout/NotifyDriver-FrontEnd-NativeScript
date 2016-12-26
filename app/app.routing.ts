@@ -3,12 +3,14 @@ import {MainComponent} from "./pages/main/main.component";
 import {SearchComponent} from './pages/search/search-component';
 import {CarFoundComponent} from './pages/car-found/car-found-component';
 import {RegisterComponent} from './pages/register/register-component';
+import {AddCarComponent} from "./pages/add-car/add-car-component";
 
 export const routes = [
     { path: "", component: MainComponent},
     { path: "login", component: LoginComponent},
     { path: "search", component: SearchComponent},
     { path: "car-found", component: CarFoundComponent},
+    { path: "add-car", component: AddCarComponent},
     { path: "register", component: RegisterComponent}
 ];
 
@@ -16,5 +18,6 @@ export const navigatableComponents = [
     MainComponent,
     LoginComponent,
     SearchComponent,
-    CarFoundComponent
+    CarFoundComponent,
+    AddCarComponent
 ];

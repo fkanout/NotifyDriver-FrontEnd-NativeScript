@@ -31,6 +31,9 @@ var SearchComponent = (function () {
         var token = this.authenticationService.getToken();
         console.log(token);
     };
+    SearchComponent.prototype.addMyCar = function () {
+        this.routerExtensions.navigate(["add-car"]);
+    };
     SearchComponent = __decorate([
         core_1.Component({
             templateUrl: 'pages/search/search-component.html',

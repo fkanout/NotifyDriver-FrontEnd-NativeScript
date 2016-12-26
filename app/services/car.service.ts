@@ -24,7 +24,6 @@ export class CarService {
     }
 
     notifyDriver(payload: any){
-        console.dir(payload);
         return request({
             url: `${this.constantsService.GET_API_URL()}/notifydriver`,
             method: "POST",
@@ -35,6 +34,20 @@ export class CarService {
                 return false;
             if (response && response.statusCode === 200 && response.content)
                 return response.content;
+        }).catch(err=> err);
+    }
+
+    addCar(payload: any){
+        return request({
+            url: `${this.constantsService.GET_API_URL()}/car/add`,
+            method: "POST",
+            headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
+            content: JSON.stringify(payload)
+        }).then(response => {
+            if (response && response.statusCode === 200 && response.content)
+                return response.content;
+            else
+                return false
         }).catch(err=> err);
     }
 }
