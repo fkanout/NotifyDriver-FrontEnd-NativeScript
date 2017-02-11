@@ -14,9 +14,9 @@ export class CarService {
             url: `${this.constantsService.GET_API_URL()}/car/search`,
             method: "POST",
             headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
-            content: JSON.stringify({ plate: plateNumber })
+            content: JSON.stringify({ plate: plateNumber.toLowerCase() })
         }).then(response => {
-            if (response && response.statusCode === 404)
+            if (response && response.statusCode >= 400)
                 return false;
             if (response && response.statusCode === 200 && response.content)
                 return response.content;
@@ -30,7 +30,7 @@ export class CarService {
             headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
             content: JSON.stringify(payload)
         }).then(response => {
-            if (response && response.statusCode === 404)
+            if (response && response.statusCode >= 400)
                 return false;
             if (response && response.statusCode === 200 && response.content)
                 return response.content;

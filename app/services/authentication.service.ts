@@ -47,5 +47,8 @@ export class AuthenticationService {
     }
 
     isAuthenticated = () => this.authenticated;
-    getToken = () =>this.token
-}
+    getToken = () =>{
+        console.log(this.token);
+        return this.token
+    }
+};

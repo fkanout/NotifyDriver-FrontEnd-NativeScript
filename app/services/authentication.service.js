@@ -26,7 +26,10 @@ var AuthenticationService = (function () {
             }).catch(function (err) { return false; });
         };
         this.isAuthenticated = function () { return _this.authenticated; };
-        this.getToken = function () { return _this.token; };
+        this.getToken = function () {
+            console.log(_this.token);
+            return _this.token;
+        };
     }
     AuthenticationService.prototype.register = function (cred) {
         var deviceToken = appSettings.getString("deviceToken");
@@ -51,4 +54,5 @@ var AuthenticationService = (function () {
     return AuthenticationService;
 }());
 exports.AuthenticationService = AuthenticationService;
+;
 //# sourceMappingURL=authentication.service.js.map

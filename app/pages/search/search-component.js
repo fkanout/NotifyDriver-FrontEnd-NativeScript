@@ -11,7 +11,6 @@ var SearchComponent = (function () {
         this.authenticationService = authenticationService;
         this.plateNumber = '';
         this.search = function () {
-            console.log(_this.plateNumber);
             _this.carService.searchCar(_this.plateNumber)
                 .then(function (response) {
                 if (response) {

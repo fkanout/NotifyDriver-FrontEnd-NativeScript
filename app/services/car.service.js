@@ -13,7 +13,7 @@ var CarService = (function () {
             url: this.constantsService.GET_API_URL() + "/car/search",
             method: "POST",
             headers: { 'Authorization': this.authenticationService.getToken(), "Content-Type": "application/json" },
-            content: JSON.stringify({ plate: plateNumber })
+            content: JSON.stringify({ plate: plateNumber.toLowerCase() })
         }).then(function (response) {
             if (response && response.statusCode === 404)
                 return false;

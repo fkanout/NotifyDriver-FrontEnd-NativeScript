@@ -16,7 +16,6 @@ export class SearchComponent implements OnInit {
     }
 
     search = () =>{
-        console.log(this.plateNumber);
        this.carService.searchCar(this.plateNumber)
             .then((response) =>{
                 if (response){
