@@ -32,8 +32,11 @@ export class CarService {
         }).then(response => {
             if (response && response.statusCode >= 400)
                 return false;
-            if (response && response.statusCode === 200 && response.content)
+            if (response && response.statusCode === 200 && response.content){
                 return response.content;
+
+
+            }
         }).catch(err=> err);
     }
 

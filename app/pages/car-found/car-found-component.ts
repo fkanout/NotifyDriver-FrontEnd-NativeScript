@@ -38,7 +38,7 @@ export class CarFoundComponent implements OnInit {
     public pokemons: Array<string>;
     public picked: string;
 
-    constructor(private activatedRoute: ActivatedRoute, private carService: CarService) {
+    constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private routerExtensions: RouterExtensions) {
         this.pokemons = [];
 
         for (let i = 0; i < this.pokemonList.length; i++) {
@@ -62,7 +62,10 @@ export class CarFoundComponent implements OnInit {
             carId: this.carFound._id,
             ownerId: this.carFound.owner,
             msgSelected: this.picked
-        }).then(respose =>console.log(respose));
+        }).then(response =>{
+            this.routerExtensions.navigate(["/search"]);
+            alert('The driver is notified now !');
+        });
 
 
     }

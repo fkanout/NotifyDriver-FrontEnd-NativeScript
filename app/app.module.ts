@@ -19,6 +19,7 @@ import firebase = require("nativescript-plugin-firebase");
 
 import * as appSettings from "application-settings";
 import {AddCarComponent} from "./pages/add-car/add-car-component";
+import {RouterExtensions} from "nativescript-angular";
 
 firebase.init({
     // Optionally pass in properties for database, authentication and cloud messaging,
@@ -36,11 +37,11 @@ firebase.init({
 
 }).then(
     (instance) => {
-        console.log(instance);
-        console.log("firebase.init done");
+        // console.log(instance);
+        // console.log("firebase.init done");
     },
     (error) => {
-        console.log("firebase.init error: " + error);
+        // console.log("firebase.init error: " + error);
     }
 );
 
@@ -64,4 +65,8 @@ firebase.init({
     bootstrap: [AppComponent]
 
 })
-export class AppModule {}
+export class AppModule {
+    constructor(private authenticationService: AuthenticationService, private routerExtensions: RouterExtensions) {
+        this.authenticationService.checkTokenToLogin().then(answer => answer && this.routerExtensions.navigate(["/search"], {clearHistory: true}));
+    }
+}

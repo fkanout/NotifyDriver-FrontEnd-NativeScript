@@ -12,13 +12,10 @@ let enums = require("ui/enums");
     templateUrl: 'pages/main/main.component.html',
 })
 export class MainComponent implements OnInit {
-    constructor(private router: Router, private routerExtensions:RouterExtensions, private authenticationService:AuthenticationService) { }
+    constructor( private routerExtensions:RouterExtensions, private authenticationService:AuthenticationService) { }
 
     ngOnInit() {
-        if (this.authenticationService.checkTokenToLogin()){
-            this.routerExtensions.navigate(["/search"], {clearHistory: true });
-        }
-    }
+    };
 
     login(){
 
@@ -43,9 +40,9 @@ export class MainComponent implements OnInit {
             scale: { x: 1, y:1 },
             duration: 6000,
         }).then(() => {
-            console.log("Animation finished.");
+            // console.log("Animation finished.");
         }).catch((e) => {
-            console.log(e.message);
+            // console.log(e.message);
         });
         // << animation-animating-properties-code
     }

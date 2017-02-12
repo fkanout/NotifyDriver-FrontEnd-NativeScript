@@ -42,13 +42,17 @@ export class AuthenticationService {
             return false;
         }).catch(err => false);
     }
-    checkTokenToLogin = ()=>{
+    checkTokenToLogin () : Promise<boolean> {
+        console.log(this.getToken());
         return request({
             url: `${this.constantsService.GET_API_URL()}/checktoken`,
             method: "GET",
-            headers: {'Authorization':this.getToken(), "Content-Type": "application/json" },
-        }).then(response => response && response.statusCode === 200 && response.content.toJSON())
-            .catch(err => false);
+            headers: {'Authorization': this.getToken(), "Content-Type": "application/json" },
+        })
+            .then(response => response && response.statusCode === 200)
+            .catch(err => {
+                return false
+            });
     };
 
     getToken = () => appSettings.getString("accessToken") || null;
