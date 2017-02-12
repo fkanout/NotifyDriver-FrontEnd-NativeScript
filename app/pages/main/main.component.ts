@@ -15,21 +15,20 @@ export class MainComponent implements OnInit {
     constructor(private router: Router, private routerExtensions:RouterExtensions, private authenticationService:AuthenticationService) { }
 
     ngOnInit() {
-        console.log(this.authenticationService.isAuthenticated());
-        if (this.authenticationService.isAuthenticated()){
-            this.routerExtensions.navigate(["/search"]);
+        if (this.authenticationService.checkTokenToLogin()){
+            this.routerExtensions.navigate(["/search"], {clearHistory: true });
         }
     }
 
     login(){
 
         this.routerExtensions.navigate(["/login"]
-            // ,{
-            // transition: {
-            //     name: "explode",
-            //         duration: 1000,
-            //         curve: "linear"
-            // }}
+            ,{
+            transition: {
+                name: "explode",
+                    duration: 1000,
+                    curve: "linear"
+            }}
         );
 
     }

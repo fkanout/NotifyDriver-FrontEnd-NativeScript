@@ -10,7 +10,6 @@ import * as appSettings from "application-settings";
 @Injectable()
 export class AuthenticationService {
     private authenticated:boolean = false;
-    public token:string = appSettings.getString("accessToken") || null;
     constructor(private constantsService: ConstantsService) { }
 
     login = (cred) => {
@@ -21,8 +20,7 @@ export class AuthenticationService {
             content: JSON.stringify({ email: cred.email, password: cred.password })
        }).then(response => {
                if (response && response.statusCode === 200 && response.content.toJSON()){
-                   const token = response.content.toJSON().token;
-                   appSettings.setString("accessToken",token);
+                   appSettings.setString("accessToken",response.content.toJSON().token);
                    return true;
                }
                return false;
@@ -38,17 +36,21 @@ export class AuthenticationService {
             content: JSON.stringify({ email: cred.email, password: cred.password, deviceToken: deviceToken})
         }).then(response => {
             if (response && response.statusCode === 200 && response.content.toJSON()){
-                const token = response.content.toJSON().token;
-                appSettings.setString("accessToken",token);
+                appSettings.setString("accessToken",response.content.toJSON().token);
                 return true;
             }
             return false;
         }).catch(err => false);
     }
+    checkTokenToLogin = ()=>{
+        return request({
+            url: `${this.constantsService.GET_API_URL()}/checktoken`,
+            method: "GET",
+            headers: {'Authorization':this.getToken(), "Content-Type": "application/json" },
+        }).then(response => response && response.statusCode === 200 && response.content.toJSON())
+            .catch(err => false);
+    };
 
-    isAuthenticated = () => this.authenticated;
-    getToken = () =>{
-        console.log(this.token);
-        return this.token
-    }
-};
+    getToken = () => appSettings.getString("accessToken") || null;
+
+}
