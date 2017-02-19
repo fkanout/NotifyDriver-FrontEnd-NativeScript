@@ -1,29 +1,56 @@
-<ActionBar class="myFontRegular" title="Search">
+<!--<ActionBar hidden="true" title="Notify Driver">-->
+
+    <ActionBar title="test">
+        <StackLayout orientation="horizontal"
+                     ios:horizontalAlignment="center"
+                     android:horizontalAlignment="center">
+            <Image src="~/asserts/img/LOGO_ND.png" class="action-image"></Image>
+            <!--<Label text="Notify Driver"  class="action-label"></Label>-->
+        </StackLayout>
+    </ActionBar>
     <!--<NavigationButton visibility="collapsed"></NavigationButton>-->
-    <ActionItem
-                ios.systemIcon="9" ios.position="left"
-                android.systemIcon="ic_menu_share"
-                android.position="actionBar"></ActionItem>
-    <ActionItem
-                ios.systemIcon="16" ios.position="right"
-                text="delete" android.position="popup"></ActionItem>
-</ActionBar>
 
-<DockLayout class="myFontRegular" stretchLastChild="true">
-    <StackLayout>
-        <FlexboxLayout >
-            <Button flexGrow="1" class="noBackgroundColor marginTopBottom"  text="My profile " ></Button>
-            <Button flexGrow="1" class="marginTopBottom" text="My car" (tap)="addMyCar()" ></Button>
-            <Button flexGrow="1" class="marginTopBottom" text="Settings" ></Button>
-        </FlexboxLayout>
+    <!--<ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search"></ActionItem>-->
 
-        <Label class="paddingLeftRight10"  textWrap="true" text="A problem with someone's car ?! Notify Driver concerned by entering his plate number ! If he is one of the ND Community, You will be abel to send him a notification about the problem"></Label>
-        <TextField style="margin-top: 25" horizontalAlignment="center"   #firstTx class="input bott"
-                   autocapitalizationType="allCharacters"
-                   hint="XXXXXXXX" autocorrect="false"
-                  [(ngModel)]="plateNumber"></TextField>
-        <Button class="btn-primary btn-active marginTopBottom" id="button" text="Search" (tap)="search()"></Button>
+<!--</ActionBar>-->
 
-    </StackLayout>
 
-</DockLayout>
+        <!--&lt;!&ndash;<FlexboxLayout >&ndash;&gt;-->
+            <!--&lt;!&ndash;<Button flexGrow="1" class="noBackgroundColor marginTopBottom"  text="My profile " ></Button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<Button flexGrow="1" class="marginTopBottom" text="My car" (tap)="addMyCar()" ></Button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<Button flexGrow="1" class="marginTopBottom" text="Settings" ></Button>&ndash;&gt;-->
+        <!--&lt;!&ndash;</FlexboxLayout>&ndash;&gt;-->
+
+
+
+        <!--&lt;!&ndash;<Label class="paddingLeftRight10"  textWrap="true" text="A problem with someone's car ?! Notify Driver concerned by entering his plate number ! If he is one of the ND Community, You will be abel to send him a notification about the problem"></Label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<TextField style="margin-top: 25" horizontalAlignment="center"   #firstTx class="input bott"&ndash;&gt;-->
+                   <!--&lt;!&ndash;autocapitalizationType="allCharacters"&ndash;&gt;-->
+                   <!--&lt;!&ndash;hint="XXXXXXXX" autocorrect="false"&ndash;&gt;-->
+                   <!--&lt;!&ndash;[(ngModel)]="plateNumber"></TextField>&ndash;&gt;-->
+        <!--&lt;!&ndash;<Button class="btn-primary btn-active marginTopBottom" id="button" text="Search" (tap)="search()"></Button>&ndash;&gt;-->
+
+
+<!--<ScrollView>-->
+    <!--<GridLayout class="m-5" columns="*,*,*" rows="*,*,*,*,*,*" sdkExampleTitle sdkToggleNavButton>-->
+        <!--<Button col="0" class="m-5 btn-primary btn-active" height="50" text="My profile " ></Button>-->
+        <!--<Button col="1" class="m-5 btn-primary btn-active" height="50" text="My cars" (tap)="addMyCar()"></Button>-->
+        <!--<Button col="2" class="m-5 btn-primary btn-active" height="50" text="Settings" ></Button>-->
+        <!--<Label  col="0" colSpan="3" row="1" textWrap="true" text="A problem with someone's car ?! Notify Driver concerned by entering his plate number ! If he is one of the ND Community, You will be abel to send him a notification about the problem"></Label>-->
+        <!--<TextField #firstTx-->
+                   <!--col="0" colSpan="3" row="2"-->
+                   <!--style="margin-top: 25"-->
+                   <!--horizontalAlignment="center"-->
+                   <!--class="input m-10"-->
+                   <!--autocapitalizationType="allCharacters"-->
+                   <!--hint="XXXXXXXX" autocorrect="false"-->
+                   <!--[(ngModel)]="plateNumber"></TextField>-->
+        <!--<Button col="0" colSpan="3" rowSpan="3" row="3" height="60" class="btn-primary btn-active h3" id="button" text="Search" (tap)="search()"></Button>-->
+    <!--</GridLayout>-->
+<!--</ScrollView>-->
+
+<GridLayout class="m-10" columns="*"  rows="*,*,*,*,*"  sdkExampleTitle sdkToggleNavButton>
+    <Button col="1" row="0" rowSpan="2" class="m-2 fa" text="   &#xf11c; | SAISIR N°" style="background-color: #ff6a63; border-radius: 10px"></Button>
+    <Button col="1" row="2" rowSpan="2" class="m-2 fa" text="   &#xf030; | SCANER N°"  style="background-color: #10ad96; border-radius: 10px "></Button>
+    <Button col="1" row="5" hieght = "100" class="m-2 h1" text="OU PLUS..." style="background-color: #7a7c7d; border-radius: 10px"></Button>
+</GridLayout>

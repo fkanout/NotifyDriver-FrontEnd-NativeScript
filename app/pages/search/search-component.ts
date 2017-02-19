@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
 
     }
     addMyCar(){
-        this.routerExtensions.navigate(["add-car"]);
+        this.routerExtensions.navigate(["my-cars"]);
 
     }
 

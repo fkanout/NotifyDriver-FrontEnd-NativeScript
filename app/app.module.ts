@@ -1,5 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/platform";
+import {platformNativeScriptDynamic,  NativeScriptModule } from "nativescript-angular/platform";
 
 import { AppComponent } from "./app.component";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
@@ -70,3 +70,4 @@ export class AppModule {
         this.authenticationService.checkTokenToLogin().then(answer => answer && this.routerExtensions.navigate(["/search"], {clearHistory: true}));
     }
 }
+// platformNativeScriptDynamic({startPageActionBarHidden: false});

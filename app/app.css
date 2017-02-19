@@ -8,6 +8,23 @@ selectors and properties you can use to style UI components.
 For example, the following CSS rule changes the font size of all UI
 components that have the btn class name.
 */
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.action-label {
+    color: #3C5AFD;
+    font-size: 24;
+    font-weight: normal;
+    vertical-align: center;
+}
+.bordless{
+    margin: 0;
+    padding: 0;
+}
 .myFontLight{
     font-family: Lato-Light;
 
@@ -23,10 +40,17 @@ components that have the btn class name.
 
 .fa {
     font-family: FontAwesome,fontawesome-webfont;
+    font-size: 40;
+    font-weight: normal;
+    color: white;
+    text-align: left;
+
 }
 .icon {
     font-family: IcoMoon-Free;
-    font-size: 48;
+    font-size: 14;
+    font-weight: normal;
+    text-align: center;
 }
 
 /*

@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/router": "3.2.1",
     "nativescript-angular": "1.2.0",
+    "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-localstorage": "^1.1.0",
     "nativescript-plugin-firebase": "^3.8.5",
     "nativescript-theme-core": "^0.2.6",

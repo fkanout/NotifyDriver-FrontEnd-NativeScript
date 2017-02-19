@@ -4,6 +4,7 @@ import {SearchComponent} from './pages/search/search-component';
 import {CarFoundComponent} from './pages/car-found/car-found-component';
 import {RegisterComponent} from './pages/register/register-component';
 import {AddCarComponent} from "./pages/add-car/add-car-component";
+import {MyCars} from "./pages/my-cars/my-cars-component";
 
 export const routes = [
     { path: "", component: MainComponent},
@@ -11,7 +12,8 @@ export const routes = [
     { path: "search", component: SearchComponent},
     { path: "car-found", component: CarFoundComponent},
     { path: "add-car", component: AddCarComponent},
-    { path: "register", component: RegisterComponent}
+    { path: "register", component: RegisterComponent},
+    { path: "my-cars", component: MyCars}
 ];
 
 export const navigatableComponents = [
@@ -19,5 +21,6 @@ export const navigatableComponents = [
     LoginComponent,
     SearchComponent,
     CarFoundComponent,
-    AddCarComponent
+    AddCarComponent,
+    MyCars
 ];

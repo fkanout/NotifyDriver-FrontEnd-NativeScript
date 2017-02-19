@@ -9,7 +9,6 @@ import * as appSettings from "application-settings";
 
 @Injectable()
 export class AuthenticationService {
-    private authenticated:boolean = false;
     constructor(private constantsService: ConstantsService) { }
 
     login = (cred) => {
