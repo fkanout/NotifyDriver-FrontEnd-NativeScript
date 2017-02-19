@@ -10,9 +10,18 @@ components that have the btn class name.
 */
 
 .action-image {
-    width: 40;
-    height: 40;
+    width: 80;
+    height: 80;
     vertical-align: center;
+}
+ActionBar {
+    background-color:  white;
+    color: darkgray;
+    border: none;
+    border-color: transparent;
+    margin-bottom: 20em;
+    margin-top: 20em;
+
 }
 
 .action-label {
@@ -126,4 +135,11 @@ refer to http://docs.nativescript.org/ui/theme.
     background-color: white;
     box-shadow: none;
     border: none;
+}
+
+.centerText{
+    text-align: center;
+}
+.justifyText{
+    text-justify: auto;
 }

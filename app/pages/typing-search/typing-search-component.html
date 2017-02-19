@@ -1,0 +1,21 @@
+<ActionBar title="SAISIRE LA PLAQUE">
+    <NavigationButton [nsRouterLink]="['/search']" pageTransition="slideRight" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<GridLayout class="m-5" columns="*"  rows="* * * * * * * *"  sdkExampleTitle sdkToggleNavButton>
+
+    <Label class="justifyText h3" col="0" row="0" rowSpan="1" style="color: gray"  textWrap="true"  text="Saissisze le numero de la plaque sans (-) ou éspace, tout les chiffres et charactéres sont coller "></Label>
+    <TextField col="0" row="1" rowSpan="1" style="color: black" class="h1" horizontalAlignment="center"   #firstTx
+        autocapitalizationType="allCharacters"
+        hint="XXXXXXX" autocorrect="false"
+        [(ngModel)]="plateNumber"></TextField>
+    <Button col="0" row="2" rowSpan="1" class="m-10 fa centerText " text="&#xf002; CHERCHER"  style="font-size: 25; background-color: #10ad96; border-radius: 10px " (tap)="search()"></Button>
+
+
+</GridLayout>
+
+
+<!--<AbsoluteLayout width="100%" hieght="100%" top="0" left="0" style="background-color: black; opacity: 0.5">-->
+
+
+<!--</AbsoluteLayout>-->
