@@ -20,6 +20,7 @@ import firebase = require("nativescript-plugin-firebase");
 import * as appSettings from "application-settings";
 import {AddCarComponent} from "./pages/add-car/add-car-component";
 import {RouterExtensions} from "nativescript-angular";
+import {TypingSearchComponent} from "./pages/typing-search/typing-search-component";
 
 firebase.init({
     // Optionally pass in properties for database, authentication and cloud messaging,
@@ -47,7 +48,7 @@ firebase.init({
 
 
 @NgModule({
-    declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent, RegisterComponent, AddCarComponent],
+    declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent, RegisterComponent, AddCarComponent, TypingSearchComponent],
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,

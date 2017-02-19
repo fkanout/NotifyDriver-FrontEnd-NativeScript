@@ -25,7 +25,8 @@ export class MainComponent implements OnInit {
                 name: "explode",
                     duration: 1000,
                     curve: "linear"
-            }}
+            }
+        }
         );
 
     }
