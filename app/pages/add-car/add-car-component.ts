@@ -17,7 +17,7 @@ export class AddCarComponent implements OnInit {
     private carModel:string = '';
     private carYear:string= '';
 
-    constructor(private carService: CarService){}
+    constructor(private carService: CarService, private routerExtensions: RouterExtensions){}
 
     ngOnInit(): void {
 
@@ -25,8 +25,10 @@ export class AddCarComponent implements OnInit {
     addCar(): void{
         this.carService.addCar({plate: this.carPlate, mark: this.carMark, model: this.carModel, year: this.carYear}).
         then(response=>{
-            if (response)
+            if (response){
                 alert('Your car added successfully');
+                this.routerExtensions.navigate(['/my-cars'])
+            }
             else
                 alert('There is a problem you car was not added !');
         })

@@ -1,5 +1,110 @@
-<GridLayout columns="*" rows="*,*,*,*,*" sdkExampleTitle sdkToggleNavButton>
-    <Button col="1" row="0" rowSpan="2" class="h1 fa " text="   &#xf11c; | SAISIR N°" style="background-color: #ff6a63;"></Button>
-    <Button col="1" row="2" rowSpan="2" class="fa h1 " text="   &#xf030; | SCANER N°"  style="background-color: #10ad96; "></Button>
-    <Button col="1" row="5" hieght = "100" class="h1 " text="OU PLUS..." style="background-color: #7a7c7d; "></Button>
-</GridLayout>
+<ActionBar title="Mes voitures">
+ 
+  <ActionItem [nsRouterLink]="['/add-car']" pageTransition="slideLeft" 
+      ios.systemIcon="4" 
+      ios.position="right"
+       android.systemIcon="ic_menu_add" 
+      android.position="actionBar">    	
+  </ActionItem>
+  <!--   <NavigationButton [nsRouterLink]="['/more']" pageTransition="slideRight" android.systemIcon="ic_menu_back"></NavigationButton> -->
+   <!--  <ActionItem 
+     	style="font-size: 30em; color: #7a7c7d; " class=" m-10 fa" 
+     	text="+&#xf1b9;">
+ 	</ActionItem>
+     -->
+</ActionBar>
+
+ <ScrollView>
+    <StackLayout>
+  
+   		<GridLayout class="m-15" style="border-radius: 20em; background-color: #f1f1f1" columns="*,*" rows="*,*,*,*,*,*" *ngFor="let car of myCarsList">
+   			
+   			<StackLayout class="m-10" colSpan="2" row="0" orientation="horizontal">
+				<Label style="font-size: 15em; color: #7a7c7d; " text="Modèle de la voiture: "></Label>
+				<Label style="font-size: 15em; color: #7a7c7d; " [text]="car.model"></Label>
+			</StackLayout>
+
+			<StackLayout class="m-10" row="0" col="1">
+				<Label style="font-size: 22em; color: #a8a8a8; " class="fa" horizontalAlignment="right" text="&#xf044;"></Label>			
+			</StackLayout>
+
+			<StackLayout class="m-10" colSpan="2" row="1" orientation="horizontal">
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" text="Marque de la voiture: "></Label>
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" [text]="car.mark"></Label>	
+			</StackLayout>
+
+
+			<StackLayout class="m-10" colSpan="2" row="2" orientation="horizontal">
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" text="N° plaque: "></Label>
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" [text]="car.plate.toUpperCase()"></Label>	
+			</StackLayout>
+
+
+			<StackLayout class="m-10" colSpan="2" row="3" orientation="horizontal">
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" text="Année: "></Label>
+				<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;" [text]="car.year"></Label>	
+			</StackLayout>
+
+			<StackLayout class="m-5" row="4" height="1" colSpan="2" backgroundColor="#a8a8a8">			</StackLayout>
+
+			<GridLayout col="0" colSpan="2" row="5" columns="*,*"> 
+				<Label col="0"
+					   style="text-align: center; font-size: 20em; color: #10ad96;" class=" m-10 fa" 
+     				   text="&#xf118; 400">
+				</Label>
+				<Label col="1"
+					   style="text-align: center; font-size: 20em; color: #ff6a63;" class=" m-10 fa" 
+     				   text="&#xf119; 2">
+				</Label>
+            </GridLayout>		
+
+        </GridLayout>	
+		         	
+
+	           
+             <!--   
+                <StackLayout class="m-10" orientation="horizontal">
+	                <Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                		text="Marque de la voiture: ">         
+	        		</Label>
+
+	               <Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                        [text]="car.mark">        
+	                </Label>	
+	            </StackLayout>
+
+	            <StackLayout class="m-10" orientation="horizontal">
+	                <Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                		text="N° plaque: ">         
+	        		</Label>
+
+	                <Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                    [text]="car.plate.toUpperCase()">
+	           		</Label>
+	            </StackLayout>
+
+
+	            <StackLayout class="m-10" orientation="horizontal">
+	                <Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                		text="Année: ">         
+	        		</Label>
+
+	               	<Label style="font-size: 15em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+	                    [text]="car.year">    
+	           		</Label>         
+	            </StackLayout>
+
+				<GridLayout columns="*,*">
+					<Label col="0"
+						   style="text-align: center; font-size: 20em; color: #10ad96;" class=" m-10 fa" 
+	     				   text="&#xf118; 400">
+					</Label>
+					<Label col="1"
+						   style="text-align: center; font-size: 20em; color: #ff6a63;" class=" m-10 fa" 
+	     				   text="&#xf119; 2">
+					</Label>
+	            </GridLayout>	 -->
+
+
+    </StackLayout>
+</ScrollView>

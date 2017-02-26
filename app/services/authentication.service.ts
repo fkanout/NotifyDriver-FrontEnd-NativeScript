@@ -55,5 +55,4 @@ export class AuthenticationService {
     };
 
     getToken = () => appSettings.getString("accessToken") || null;
-
 }

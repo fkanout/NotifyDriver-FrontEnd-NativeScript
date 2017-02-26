@@ -1,0 +1,20 @@
+<ActionBar title="PLUS">
+    <NavigationButton [nsRouterLink]="['/search']" pageTransition="slideRight" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+<GridLayout>
+    <StackLayout>
+            <StackLayout *ngFor="let item of myItems" orientation="horizontal">
+                
+                <Label  style="color: #7a7c7d; border-bottom: 10em #ff6a63 solid;"  
+                        [text]="item.icon" 
+                        class="m-10 iconList">            
+                </Label>
+
+                <Label style="font-size: 30em; color: #7a7c7d; border-bottom: 10px #ff6a63 solid;"  
+                        [text]="item.name" class="m-10 labelTitleList" 
+                        [nsRouterLink]="[item.link]" pageTransition="slide">
+                </Label>
+
+            </StackLayout>
+    </StackLayout>
+</GridLayout>

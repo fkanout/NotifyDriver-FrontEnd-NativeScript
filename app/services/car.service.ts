@@ -53,4 +53,17 @@ export class CarService {
                 return false
         }).catch(err=> err);
     }
+
+    getMyCars(){
+        return request({
+            url: `${this.constantsService.GET_API_URL()}/car/getmycars`,
+            method: "GET",
+            headers: {'Authorization':this.authenticationService.getToken(), "Content-Type": "application/json" },
+        }).then(response => {
+            if (response && response.statusCode === 200 && response.content)
+                return response.content;
+            else
+                return false
+        }).catch(err=> err);
+    }
 }

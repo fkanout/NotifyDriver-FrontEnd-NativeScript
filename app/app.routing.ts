@@ -6,6 +6,7 @@ import {RegisterComponent} from './pages/register/register-component';
 import {AddCarComponent} from "./pages/add-car/add-car-component";
 import {MyCars} from "./pages/my-cars/my-cars-component";
 import {TypingSearchComponent} from "./pages/typing-search/typing-search-component";
+import {MoreComponent} from "./pages/more/more-component";
 
 export const routes = [
     { path: "", component: MainComponent},
@@ -15,14 +16,18 @@ export const routes = [
     { path: "add-car", component: AddCarComponent},
     { path: "register", component: RegisterComponent},
     { path: "my-cars", component: MyCars},
-    { path: "typing-search", component: TypingSearchComponent}
+    { path: "typing-search", component: TypingSearchComponent},
+    { path: "more", component: MoreComponent}
 ];
 
-export const navigatableComponents = [
+export const appComponents = [
     MainComponent,
     LoginComponent,
     SearchComponent,
     CarFoundComponent,
     AddCarComponent,
-    MyCars
+    RegisterComponent,
+    MyCars,
+    TypingSearchComponent,
+    MoreComponent
 ];

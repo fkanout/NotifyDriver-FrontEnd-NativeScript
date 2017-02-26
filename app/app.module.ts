@@ -3,24 +3,17 @@ import {platformNativeScriptDynamic,  NativeScriptModule } from "nativescript-an
 
 import { AppComponent } from "./app.component";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { routes, navigatableComponents } from "./app.routing";
-import {MainComponent} from "./pages/main/main.component";
-import {LoginComponent} from "./pages/login/login.component";
+import { routes, appComponents } from "./app.routing";
 
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import {AuthenticationService} from "./services/authentication.service";
 import {ConstantsService} from "./services/constants.service";
-import {SearchComponent} from "./pages/search/search-component";
 import {CarService} from "./services/car.service";
-import {CarFoundComponent} from "./pages/car-found/car-found-component";
-import {RegisterComponent} from "./pages/register/register-component";
 import firebase = require("nativescript-plugin-firebase");
 
 import * as appSettings from "application-settings";
-import {AddCarComponent} from "./pages/add-car/add-car-component";
 import {RouterExtensions} from "nativescript-angular";
-import {TypingSearchComponent} from "./pages/typing-search/typing-search-component";
 
 firebase.init({
     // Optionally pass in properties for database, authentication and cloud messaging,
@@ -48,7 +41,7 @@ firebase.init({
 
 
 @NgModule({
-    declarations: [AppComponent,navigatableComponents, MainComponent,LoginComponent,SearchComponent, CarFoundComponent, RegisterComponent, AddCarComponent, TypingSearchComponent],
+    declarations: [AppComponent, appComponents],
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
