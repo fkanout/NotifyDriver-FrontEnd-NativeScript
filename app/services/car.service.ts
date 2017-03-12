@@ -7,9 +7,10 @@ import {request} from "http";
 
 @Injectable()
 export class CarService {
-    constructor(private authenticationService: AuthenticationService, private constantsService: ConstantsService) { }
+    constructor(private authenticationService: AuthenticationService, private constantsService: ConstantsService ) { }
 
     searchCar(plateNumber: string){
+
         return request({
             url: `${this.constantsService.GET_API_URL()}/car/search`,
             method: "POST",

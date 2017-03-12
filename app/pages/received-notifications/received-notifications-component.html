@@ -1,0 +1,28 @@
+<ActionBar title="Notifications">
+
+</ActionBar>
+
+<ScrollView>
+    <StackLayout>
+
+        <GridLayout class="m-15" style="border-radius: 20em; background-color: #f1f1f1" columns="*,*" rows="*,*,*,*,*,*" *ngFor="let item of notificationsList">
+
+            <StackLayout  class="m-10" colSpan="2" row="0" orientation="horizontal">
+                <Label style="font-size: 10em; color: #7a7c7d; " [text]="item.sentDate"></Label>
+            </StackLayout>
+
+            <StackLayout class="m-10" colSpan="2" row="1" orientation="horizontal">
+                <Label style="font-size: 15em; color: #7a7c7d; " text="N° plaque:: "></Label>
+                <Label style="font-size: 15em; color: #7a7c7d; " [text]="item.carPlate"></Label>
+            </StackLayout>
+            <StackLayout class="m-10" colSpan="2" row="2" orientation="horizontal">
+                <Label style="font-size: 15em; color: #7a7c7d; " text="Message: "></Label>
+                <Label style="font-size: 15em; color: #7a7c7d; " [text]="item.sentMsg"></Label>
+            </StackLayout>
+
+
+        </GridLayout>
+
+
+    </StackLayout>
+</ScrollView>

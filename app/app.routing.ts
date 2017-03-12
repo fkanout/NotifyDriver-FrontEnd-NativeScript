@@ -7,6 +7,7 @@ import {AddCarComponent} from "./pages/add-car/add-car-component";
 import {MyCars} from "./pages/my-cars/my-cars-component";
 import {TypingSearchComponent} from "./pages/typing-search/typing-search-component";
 import {MoreComponent} from "./pages/more/more-component";
+import {ReceivedNotifications} from "./pages/received-notifications/received-notifications-component";
 
 export const routes = [
     { path: "", component: MainComponent},
@@ -17,7 +18,8 @@ export const routes = [
     { path: "register", component: RegisterComponent},
     { path: "my-cars", component: MyCars},
     { path: "typing-search", component: TypingSearchComponent},
-    { path: "more", component: MoreComponent}
+    { path: "more", component: MoreComponent},
+    { path: "received-notifications", component: ReceivedNotifications}
 ];
 
 export const appComponents = [
@@ -29,5 +31,6 @@ export const appComponents = [
     RegisterComponent,
     MyCars,
     TypingSearchComponent,
-    MoreComponent
+    MoreComponent,
+    ReceivedNotifications
 ];

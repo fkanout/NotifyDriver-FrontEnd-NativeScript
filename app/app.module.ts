@@ -10,6 +10,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import {AuthenticationService} from "./services/authentication.service";
 import {ConstantsService} from "./services/constants.service";
 import {CarService} from "./services/car.service";
+import {UserService} from "./services/user.service";
 import firebase = require("nativescript-plugin-firebase");
 
 import * as appSettings from "application-settings";
@@ -53,7 +54,8 @@ firebase.init({
     providers: [
         AuthenticationService,
         ConstantsService,
-        CarService
+        CarService,
+        UserService
     ],
     schemas: [NO_ERRORS_SCHEMA],
     bootstrap: [AppComponent]

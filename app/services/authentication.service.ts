@@ -54,5 +54,9 @@ export class AuthenticationService {
             });
     };
 
-    getToken = () => appSettings.getString("accessToken") || null;
+    signOutByRemoveToken = ()=>{
+        appSettings.remove("accessToken");
+    };
+
+    getToken = () => appSettings.getString("accessToken");
 }
